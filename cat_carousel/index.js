@@ -1,23 +1,25 @@
-/*function catCarousel(){
-	$('.thumbnail').on('click', event => {
-		console.log(event);
-		alert("You clicked me");
-	});
-
-}*/
 
 function catCarousel(){
-  $('.thumbnail').on('click', function(e){
-  	console.log(e);
-  	console.log(this);
-    let source = $(this).find('img').attr('src');
-    let altText = $(this).find('img').attr('alt');
-   
-    $('.hero img').attr('src', source);
-    $('.hero img').attr('alt', altText);
-    
-    
-  })
+    //$ same as jquery()
+    $('.thumbnail').on('click', function(event){
+        
+        //console.log(event);
+        console.log(this);
+        console.log(event.currentTarget);
+
+        const thumbSource = $(event.currentTarget).find('img').attr('src');
+        //console.log(thumbSource);
+        //console.log (typeof thumbSource);
+
+        const thumbAlt = $(event.currentTarget).find('img').attr('alt');
+        //console.log(thumbAlt);
+
+        $('.hero img').attr('src', thumbSource);
+        $('.hero img').attr('alt', thumbAlt);
+        
+        
+    })
+
 }
 
-$(catCarousel);
+$(catCarousel());
